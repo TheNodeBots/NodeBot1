@@ -12,8 +12,9 @@ services:
 #    depends_on: 
 #      - mimic3
     environment:
-      DISPLAY: ":0"
+      DISPLAY: "host.docker.internal:0.0" # $DISPLAY
       LIBGL_ALWAYS_SOFTWARE: 1 # Needed for rendering of opengl
+      LIBGL_ALWAYS_INDIRECT: 0 # Needed for rendering of opengl
     security_opt:
       - seccomp:unconfined
       - apparmor:unconfined
