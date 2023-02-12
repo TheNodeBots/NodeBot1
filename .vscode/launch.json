@@ -1,0 +1,24 @@
+{
+  // inspired by https://github.com/athackst/vscode_ros2_workspace/blob/humble/.vscode/launch.json
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+  ],
+  "inputs": [
+    {
+      "id": "package",
+      "type": "promptString",
+      "description": "Package name",
+      "default": "examples_rclcpp_minimal_publisher"
+    },
+    {
+      "id": "program",
+      "type": "promptString",
+      "description": "Program name",
+      "default": "publisher_member_function"
+    }
+  ]
+}
+  

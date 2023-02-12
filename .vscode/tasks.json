@@ -1,0 +1,85 @@
+{
+  // inspired by https://github.com/athackst/vscode_ros2_workspace/blob/humble/.vscode/tasks.json
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    // Build tasks
+    {
+      "label": "build",
+      "detail": "Build workspace (default)",
+      "type": "shell",
+      "command": "./build.sh",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$gcc"
+    },
+    // Git tasks
+    {
+      "label": "pull workspace file",
+      "detail": "Use vcs to pull modules.",
+      "type": "shell",
+      "command": "vcs pull src",
+      "problemMatcher": []
+    },
+    // Workspace editing tasks
+    {
+      "label": "new ament_cmake package",
+      "detail": "Create a new ROS cpp package from a template.",
+      "type": "shell",
+      "command": "ros2 pkg create --destination-directory src --build-type ament_cmake ${input:package}",
+      "problemMatcher": []
+    },
+    {
+      "label": "new ament_python package",
+      "detail": "Create a new ROS python package from a template.",
+      "type": "shell",
+      "command": "ros2 pkg create --destination-directory src --build-type ament_python ${input:package}",
+      "problemMatcher": []
+    },
+    {
+      "label": "import from workspace file",
+      "detail": "Use vcs to import modules specified by a workspace/rosinstall file.",
+      "type": "shell",
+      "command": "vcs import < src/vcs.repos src",
+      "problemMatcher": []
+    },
+    {
+      "label": "update workspace file",
+      "detail": "Use vcs to update repositories in src to workspace file.",
+      "type": "shell",
+      "command": "vcs export src > src/vcs.repos",
+      "problemMatcher": []
+    },
+    {
+      "label": "install dependencies",
+      "detail": "Install all dependencies specified in the workspaces package.xml files.",
+      "type": "shell",
+      "command": "sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y",
+      "problemMatcher": []
+    },
+    {
+      "label": "setup",
+      "detail": "Set up the workspace",
+      "type": "shell",
+      "command": "./setup.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "clean workspace",
+      "detail": "Remove all build results in workspace",
+      "type": "shell",
+      "command": "rm -fR ./install/ ./build/ ./log/ ./tmp/",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "package",
+      "type": "promptString",
+      "description": "Package name"
+    }
+  ]
+}

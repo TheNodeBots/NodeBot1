@@ -1,0 +1,31 @@
+# docker compose file to start TheHomeBots development environment
+services:
+  # the workspace container which is used in VSCode
+  workspace:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        WORKSPACE: "/home/ros/workspace"
+    cap_add:
+      - SYS_PTRACE
+#    depends_on: 
+#      - mimic3
+    environment:
+      DISPLAY: ":0"
+      LIBGL_ALWAYS_SOFTWARE: 1 # Needed for rendering of opengl
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    user: ros
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ..:/home/ros/workspace
+
+  # the mimic3 text2speech synthesizer
+#  mimic3:
+#    image: mycroftai/mimic3
+#    ports:
+#      - 59125:59125
+#    volumes:
+#      - ../.mimic3:/home/mimic3/.local/share/mycroft/mimic3

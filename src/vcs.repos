@@ -1,0 +1,5 @@
+repositories:
+  dummy:
+    type: git
+    url: git@github.com:TheNodeBots/dummy.git
+    version: main

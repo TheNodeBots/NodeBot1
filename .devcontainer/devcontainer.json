@@ -1,0 +1,29 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+	"name": "NodeBot1",
+	"dockerComposeFile": [
+			"compose.yaml"
+	],
+	"service": "workspace",
+	"workspaceFolder": "/home/ros/workspace",
+	// customizations when the container is created
+	"customizations": {
+			"vscode": {
+					"settings": {
+							"terminal.integrated.profiles.linux": {
+									"bash": {
+											"path": "bash"
+									}
+							},
+							"terminal.integrated.defaultProfile.linux": "bash"
+					},
+					"extensions": [
+							"ms-python.python",
+							"ms-vscode.cmake-tools",
+							"ms-vscode.cpptools",
+							"ms-vscode.cpptools-extension-pack",
+							"ms-vscode.cpptools-themes"
+					]
+			}
+	}
+}
