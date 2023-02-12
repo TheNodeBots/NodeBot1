@@ -1,5 +1,5 @@
 repositories:
-  dummy:
+  nodebot1_webots:
     type: git
-    url: git@github.com:TheNodeBots/dummy.git
+    url: git@github.com:TheNodeBots/nodebot1_webots.git
     version: main
