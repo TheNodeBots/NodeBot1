@@ -1,0 +1,32 @@
+# docker compose file to start linux specific services in development environment
+services:
+  # the workspace container which is used in VSCode on Linux
+  workspace:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        WORKSPACE: "/home/ros/workspace"
+    cap_add:
+      - SYS_PTRACE
+    environment:
+      DISPLAY: :0
+      MIMIC3_SERVER: ${MIMIC3_SERVER}:${MIMIC3_PORT}
+      # Needed for rendering of opengl
+      LIBGL_ALWAYS_SOFTWARE: 1
+      LIBGL_ALWAYS_INDIRECT: 0
+      # for unix audio 
+      PULSE_SERVER: unix:/run/user/${UID}/pulse/native
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    user: ros
+    volumes:
+      - ..:/home/ros/workspace
+      # for unix audio/video
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /etc/alsa:/etc/alsa
+      - /usr/share/alsa:/usr/share/alsa
+      - ~/.config/pulse:/.config/pulse
+      - /run/user/${UID}/pulse/native:/run/user/${UID}/pulse/native
+

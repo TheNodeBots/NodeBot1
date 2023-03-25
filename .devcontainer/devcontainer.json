@@ -2,18 +2,19 @@
 {
 	"name": "NodeBot1",
 	"dockerComposeFile": [
-			"compose.yaml"
+//			"compose-linux.yaml"
+			"compose-windows.yaml"
 	],
 	"service": "workspace",
 	"workspaceFolder": "/home/ros/workspace",
-//	"containerEnv": {
-//		"DISPLAY": "192.168.189.3:0.0",
+	"containerEnv": {
+		"DISPLAY": ":0",
 //		// Webots connection URL
 //		"WEBOTS_CONTROLLER_URL": "tcp://192.168.189.3:1234/NodeBot1",
 //		// Needed for rendering of opengl
 //		"LIBGL_ALWAYS_SOFTWARE": "1",
 //		"LIBGL_ALWAYS_INDIRECT": "0"
-//	},
+	},
 	// customizations when the container is created
 	"customizations": {
 			"vscode": {
