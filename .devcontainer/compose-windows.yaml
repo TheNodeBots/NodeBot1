@@ -2,6 +2,7 @@
 services:
   # the workspace container which is used in VSCode on Windows
   workspace:
+    env_file: devcontainer.env
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -11,7 +12,6 @@ services:
       - SYS_PTRACE
     environment:
       DISPLAY: :0
-      MIMIC3_SERVER: ${MIMIC3_SERVER}:${MIMIC3_PORT}
       # Needed for rendering of opengl
       LIBGL_ALWAYS_SOFTWARE: 1
       LIBGL_ALWAYS_INDIRECT: 0
