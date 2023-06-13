@@ -1,9 +1,0 @@
-repositories:
-  nodebot1_webots:
-    type: git
-    url: git@github.com:TheNodeBots/nodebot1_webots.git
-    version: main
-  nodebot1_gazebo:
-    type: git
-    url: git@github.com:TheNodeBots/nodebot1_gazebo.git
-    version: main
