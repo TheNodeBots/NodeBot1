@@ -3,3 +3,6 @@ install/
 log/
 
 devcontainer.env
+
+.BoxWorld.wbproj
+.BoxWorld.jpg
