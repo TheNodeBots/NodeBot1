@@ -4,5 +4,6 @@ log/
 
 devcontainer.env
 
+*.exe
 .BoxWorld.wbproj
 .BoxWorld.jpg
