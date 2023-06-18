@@ -23,11 +23,11 @@
 					},
 					"extensions": [
 							"ms-python.python",
-							"ms-iot.vscode-ros",
 							"ms-vscode.cmake-tools",
 							"ms-vscode.cpptools",
 							"ms-vscode.cpptools-extension-pack",
-							"ms-vscode.cpptools-themes"
+							"ms-vscode.cpptools-themes",
+							"ms-iot.vscode-ros"
 					]
 			}
 	}
