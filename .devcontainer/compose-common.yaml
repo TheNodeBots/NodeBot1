@@ -1,0 +1,2 @@
+# docker compose file to start common services in development environment
+services:

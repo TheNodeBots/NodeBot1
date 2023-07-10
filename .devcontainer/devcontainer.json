@@ -2,8 +2,9 @@
 {
 	"name": "NodeBot1",
 	"dockerComposeFile": [
-//			"compose-linux.yaml"
-			"compose-windows.yaml"
+//		"compose-common.yaml",
+		// on Linux ${localEnv:OS} will evolve to "" on Window to "Windows_NT"
+		"compose-${localEnv:OS}.yaml"
 	],
 	"service": "workspace",
 	"workspaceFolder": "/home/ros/workspace",
